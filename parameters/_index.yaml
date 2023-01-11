@@ -1,6 +1,4 @@
 # path
-petId:
-  $ref: './path/petId.yaml'
 
 # limit
 limit:

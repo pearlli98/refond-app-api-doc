@@ -14,10 +14,6 @@ servers:
 tags:
   - name: pets
 paths:
-  # /pets:
-  #   $ref: "./resources/pets.yaml"
-  # /pets/{petId}:
-  #   $ref: "./resources/pet.yaml"
   /credential:
     $ref: "./resources/credential.yaml"
   /story:
