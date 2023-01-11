@@ -1,5 +1,3 @@
-Pet:
-  $ref: "./Pet.yaml"
 Error:
   $ref: "./Error.yaml"
 Account:
