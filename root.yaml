@@ -12,7 +12,13 @@ info:
 servers:
   - url: localhost:3000
 tags:
-  - name: pets
+  - name: credentials
+    # description: Everything about account credentials
+    # externalDocs:
+    #   description: Find out more
+    #   url: http://swagger.io
+  - name: story
+  #   description: Access to Petstore orders
 paths:
   /credential:
     $ref: "./resources/credential.yaml"
@@ -22,12 +28,6 @@ paths:
     $ref: "./resources/story_list.yaml"
   /story/interaction:
     $ref: "./resources/interaction.yaml"
-  # /user/story/view:
-  #   $ref: "./resources/user_story_view.yaml"
-  # /story/view:
-  #   $ref: "./resources/story_view.yaml"
-  # /story/image:
-  #   $ref: "./resources/story_image.yaml"
 components:
   parameters:
     $ref: "./parameters/_index.yaml"

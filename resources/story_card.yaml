@@ -1,5 +1,8 @@
 post:
-  description: save a new story to database
+  tags:
+    - story
+  summary: create a story post
+  description: get presignedURL from aws, save a new story entry (including aws key) to database, 
   requestBody:
     description: username and password
     required: true
@@ -7,39 +10,68 @@ post:
       application/json:
         schema:
           type: object
+          required: 
+            - userId
           properties:
             userId: 
               type: integer
   responses:
     '200':
-      description: Expected response to a valid request
+      description: successful operation
       content:
         application/json:
           schema:
+            required: 
+              - story
+              - url
             type: object
             properties:
-              userId:
+              story:
+                $ref: "../schemas/story_entry.yaml"
+                example:
+                  story:
+                    id: 7
+                    userId: 1
+                    imageKey: exampleKey
+                    updatedAt: 2023-01-11T19:42:03.552Z
+                    createdAt: 2023-01-11T19:42:03.552Z
+                    like: 0
+                    dislike: 1
+                    superlike: 2
+              url:
                 type: string
+                example: https://refond-app.s3.example.upload.com
+    '400':
+      description: This user has already posted a story today
     default:
       $ref: "../responses/UnexpectedError.yaml"
 
 get:
-  description: get a story image url
+  tags:
+    - story
+  summary: get a story image
+  description: get a story image url from database
   parameters:
   - in: query
+    required: true
     name: storyId
     schema:
       type: integer
   responses:
     '200':
-      description: successfully retrieved list of stories
+      description: successful operation
       content:
         application/json:
           schema:
             type: object
+            required: 
+              - imageURL
             properties:
               imageURL:
                 type: string
+                example: https://refond-app.s3.example.view.com
+    '404':
+      description: No story is associted with this id
     default:
       $ref: "../responses/UnexpectedError.yaml"
 

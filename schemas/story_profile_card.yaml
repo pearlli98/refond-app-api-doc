@@ -1,15 +1,19 @@
 type: object
 required:
-  - storyId
-  - authorId
+  - id
   - viewStatus
   - profileURL
+  - username
 properties:
-  storyId:
+  id:
+    description: story id
     type: integer
-  authorUsername:
-    type: string
   viewStatus:
+    description: interaction status of the user (not author) and the story
     type: boolean
   profileURL:
+    description: URL of profile picture of author of the story
+    type: string
+  username:
+    description: userId of author of the story
     type: string

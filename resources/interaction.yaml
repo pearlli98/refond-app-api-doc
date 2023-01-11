@@ -1,11 +1,18 @@
 post:
-  description: save a reaction to database
+  tags:
+    - story
+  summary: save interactions
+  description: save an interaction between user and story to database
   requestBody:
     required: true
     content:
       application/json:
         schema:
           type: object
+          required:
+            - userId
+            - storyId
+            - interactionType
           properties:
             userId: 
               type: integer
@@ -16,11 +23,16 @@ post:
 
   responses:
     '200':
-      description: Expected response to a valid request
+      description: successful operation
+    '403':
+      description: invalid interaction type
     default:
       $ref: "../responses/UnexpectedError.yaml"
 
 get:
+  tags:
+    - story
+  summary: get interactions by author or story
   description: get number of interactions by a specified authorId or storyId
   parameters:
   - in: query
@@ -32,12 +44,13 @@ get:
     schema:
       type: integer
   - in: query
+    required: true
     name: interactionType
     schema:
       $ref: "../schemas/interaction.yaml"
   responses:
     '200':
-      description: number of reaction is succesfully calculated from database
+      description: successful operation
       content:
         application/json:
           schema:
@@ -45,6 +58,10 @@ get:
             properties:
               reactionCount:
                 type: integer
+    '403':
+      description: invalid interaction type
+    '404':
+      description: author id/story id undefined
     default:
       $ref: "../responses/UnexpectedError.yaml"
 

@@ -1,0 +1,35 @@
+type: object
+required:
+  - id
+  - userId
+  - imageKey
+  - updatedAt
+  - createdAt
+  - like
+  - dislike
+  - superlike
+properties:
+  id:
+    description: story id
+    type: integer
+  userId:
+    description: user id of author of story
+    type: integer
+  imageKey:
+    description: aws key of story picture url
+    type: string
+  updatedAt:
+    description: time of update
+    type: string
+  createdAt:
+    description: time of creation
+    type: string
+  like:
+    description: number of likes
+    type: integer
+  dislike:
+    description: number of dislikes
+    type: integer
+  superlike:
+    description: number of superlikes
+    type: integer
