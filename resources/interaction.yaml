@@ -1,0 +1,51 @@
+post:
+  description: save a reaction to database
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            userId: 
+              type: integer
+            storyId:
+              type: integer
+            interactionType:
+              $ref: "../schemas/interaction.yaml"
+
+  responses:
+    '200':
+      description: Expected response to a valid request
+    default:
+      $ref: "../responses/UnexpectedError.yaml"
+
+get:
+  description: get number of interactions by a specified authorId or storyId
+  parameters:
+  - in: query
+    name: authorId
+    schema:
+      type: integer
+  - in: query
+    name: storyId
+    schema:
+      type: integer
+  - in: query
+    name: interactionType
+    schema:
+      $ref: "../schemas/interaction.yaml"
+  responses:
+    '200':
+      description: number of reaction is succesfully calculated from database
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              reactionCount:
+                type: integer
+    default:
+      $ref: "../responses/UnexpectedError.yaml"
+
+            

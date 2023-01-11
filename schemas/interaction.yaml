@@ -1,0 +1,12 @@
+type: object
+required:
+  - interaction
+properties:
+  interaction:
+    type: string
+    enum:
+      - like
+      - dislike
+      - superlike
+      - empty
+      - skip

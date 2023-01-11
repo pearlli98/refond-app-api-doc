@@ -1,0 +1,46 @@
+post:
+  description: save a new story to database
+  requestBody:
+    description: username and password
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            userId: 
+              type: integer
+  responses:
+    '200':
+      description: Expected response to a valid request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              userId:
+                type: string
+    default:
+      $ref: "../responses/UnexpectedError.yaml"
+
+get:
+  description: get a story image url
+  parameters:
+  - in: query
+    name: storyId
+    schema:
+      type: integer
+  responses:
+    '200':
+      description: successfully retrieved list of stories
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              imageURL:
+                type: string
+    default:
+      $ref: "../responses/UnexpectedError.yaml"
+
+

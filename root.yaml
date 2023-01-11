@@ -1,0 +1,41 @@
+openapi: "3.0.0"
+info:
+  version: Beta
+  title: Refond App API
+  description: ...
+  license:
+    name: MIT
+  contact:
+    name: API Support
+    url: http://www.example.com/support
+    email: refond-help@mit.edu
+servers:
+  - url: localhost:3000
+tags:
+  - name: pets
+paths:
+  # /pets:
+  #   $ref: "./resources/pets.yaml"
+  # /pets/{petId}:
+  #   $ref: "./resources/pet.yaml"
+  /credential:
+    $ref: "./resources/credential.yaml"
+  /story:
+    $ref: "./resources/story_card.yaml"
+  /story/list:
+    $ref: "./resources/story_list.yaml"
+  /story/interaction:
+    $ref: "./resources/interaction.yaml"
+  # /user/story/view:
+  #   $ref: "./resources/user_story_view.yaml"
+  # /story/view:
+  #   $ref: "./resources/story_view.yaml"
+  # /story/image:
+  #   $ref: "./resources/story_image.yaml"
+components:
+  parameters:
+    $ref: "./parameters/_index.yaml"
+  schemas:
+    $ref: "./schemas/_index.yaml"
+  responses:
+    $ref: "./responses/_index.yaml"

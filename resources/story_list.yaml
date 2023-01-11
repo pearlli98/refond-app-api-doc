@@ -1,0 +1,18 @@
+get:
+  description: get a list of stories, representeded by profiles of authors, for a user to display on the story page
+  parameters:
+  - in: query
+    name: userId
+    schema:
+      type: integer
+  responses:
+    '200':
+      description: successfully saved a story
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../schemas/story_profile_card.yaml"
+    default:
+      $ref: "../responses/UnexpectedError.yaml"

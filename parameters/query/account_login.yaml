@@ -1,0 +1,7 @@
+name: account_login_info
+in: query
+description: information to log into an account
+required: true
+schema:
+  type: integer
+  format: int32

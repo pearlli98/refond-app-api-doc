@@ -1,0 +1,15 @@
+type: object
+required:
+  - storyId
+  - authorId
+  - viewStatus
+  - profileURL
+properties:
+  storyId:
+    type: integer
+  authorUsername:
+    type: string
+  viewStatus:
+    type: boolean
+  profileURL:
+    type: string

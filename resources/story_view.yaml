@@ -1,0 +1,45 @@
+post:
+  summary: save a view history to database
+  description: per summary
+  requestBody:
+    description: userId and the storyId
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            userId: 
+              type: string
+            storyId:
+              type: string
+
+  responses:
+    '200':
+      description: Expected response to a valid request
+    default:
+      $ref: "../responses/UnexpectedError.yaml"
+            
+            
+get:
+  summary: get the view count of a specific story
+  parameters:
+  - in: query
+    name: storyId
+    schema:
+      type: string
+      example: "pearlli"
+  responses:
+    '200':
+      description: successfully return the view count of a story
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              viewCount:
+                type: integer
+    default:
+      $ref: "../responses/UnexpectedError.yaml"
+
+            
