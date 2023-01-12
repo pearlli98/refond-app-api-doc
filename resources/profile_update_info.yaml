@@ -1,0 +1,35 @@
+post:
+  tags:
+    - profile
+  summary: update user profile info
+  description: update username, first/last name based on userId
+  requestBody:
+    description: username, first & last name
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - userId
+            - username
+            - firstName
+            - lastName
+          properties:
+            userId:
+              type: integer
+            username:
+              type: string
+            firstName:
+              type: string
+            lastName:
+              type: string
+  responses:
+    '200':
+      description: successful operation
+    '404':
+      description: No user is associted with this id
+    '400':
+      description: Username cannot be undefined
+    default:
+      $ref: "../responses/UnexpectedError.yaml"

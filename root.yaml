@@ -19,6 +19,7 @@ tags:
     #   url: http://swagger.io
   - name: story
   #   description: Access to Petstore orders
+  - name: profile
 paths:
   /credential:
     $ref: "./resources/credential.yaml"
@@ -28,6 +29,12 @@ paths:
     $ref: "./resources/story_list.yaml"
   /story/interaction:
     $ref: "./resources/interaction.yaml"
+  /profile/udpate/info:
+    $ref: "./resources/profile_update_info.yaml"
+  /profile/update/picture:
+    $ref: "./resources/profile_update_picture.yaml"
+  /profile/picture:
+    $ref: "./resources/profile_get_picture.yaml"
 components:
   parameters:
     $ref: "./parameters/_index.yaml"

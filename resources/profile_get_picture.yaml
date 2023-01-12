@@ -1,0 +1,30 @@
+get:
+  tags:
+    - profile
+  summary: get profile picture
+  description: get url for profile picture associated with user
+  parameters:
+  - in: query
+    required: true
+    name: userId
+    schema:
+      type: integer
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            required: 
+              - profileURL
+            properties:
+              profileURL:
+                type: string
+                example: https://refond-app.s3.example.view.com
+    '404':
+      description: No user is associted with this id
+    default:
+      $ref: "../responses/UnexpectedError.yaml"
+
+
